@@ -16,7 +16,7 @@ If you choose the model size among small, medium, and large, the number of chann
 ![image](https://user-images.githubusercontent.com/54731898/122670336-864ba400-d1fc-11eb-985e-e40e20339a68.png)  
   
 ContextNet has 23 convolution blocks C0, .... ,C22. All convolution blocks have five layers of convolution except C0 and C22 which only have one layer of convolution each. A skip connection with projection is applied on the output of the squeeze-and-excitation(SE) block.  
-- ### **1D Squeeze-and-excitation module(SE)**    
+- ### **1D Squeeze-and-excitation(SE) module**    
 ![image](https://user-images.githubusercontent.com/54731898/122670784-abd9ad00-d1fe-11eb-8be1-c1aa8f97a7bf.png)  
   
 Average pooling is applied to condense the convolution result into a 1D vector and then followed two fully connected (FC) layers with activation functions. The output goes through a Sigmoid function to be mapped to (0, 1) and then tiled and applied on the convolution output using pointwise multiplications.  
