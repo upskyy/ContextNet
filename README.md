@@ -34,7 +34,10 @@ BATCH_SIZE, SEQ_LENGTH, INPUT_SIZE, NUM_VOCABS = 3, 500, 80, 10
 cuda = torch.cuda.is_available()
 device = torch.device('cuda' if cuda else 'cpu')
 
-model = ContextNet(num_vocabs=10).to(device)
+model = ContextNet(
+    model_size='large',
+    num_vocabs=10,
+).to(device)
 
 inputs = torch.FloatTensor(BATCH_SIZE, SEQ_LENGTH, INPUT_SIZE).to(device)
 input_lengths = torch.IntTensor([500, 450, 350])
