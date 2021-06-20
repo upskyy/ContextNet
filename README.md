@@ -7,16 +7,16 @@ ContextNet uses the global parameter alpha to control the scaling of the model b
 This repository contains only model code, but you can train with contextnet at [openspeech](https://github.com/sooftware/openspeech).
 
 ## Model Architecuture 
-- **Configuration of the ContextNet encoder**  
+- ### **Configuration of the ContextNet encoder**  
   
 ![image](https://user-images.githubusercontent.com/54731898/122670308-4b497080-d1fc-11eb-93ae-cd2bd179440c.png)  
 If you choose the model size among small, medium, and large, the number of channels in the convolution filter is set using the global parameter alpha. If the stride of a convolution block is 2, its last conv layer has a stride of two while the rest of the conv layers has a stride of one.  
-- **A convolution block architecuture**  
+- ### **A convolution block architecuture**  
   
 ![image](https://user-images.githubusercontent.com/54731898/122670336-864ba400-d1fc-11eb-985e-e40e20339a68.png)  
   
 ContextNet has 23 convolution blocks C0, .... ,C22. All convolution blocks have five layers of convolution except C0 and C22 which only have one layer of convolution each. A skip connection with projection is applied on the output of the squeeze-and-excitation(SE) block.  
-- **1D Squeeze-and-excitation module(SE)**    
+- ### **1D Squeeze-and-excitation module(SE)**    
 ![image](https://user-images.githubusercontent.com/54731898/122670784-abd9ad00-d1fe-11eb-8be1-c1aa8f97a7bf.png)  
   
 Average pooling is applied to condense the convolution result into a 1D vector and then followed two fully connected (FC) layers with activation functions. The output goes through a Sigmoid function to be mapped to (0, 1) and then tiled and applied on the convolution output using pointwise multiplications.  
@@ -43,7 +43,11 @@ targets = torch.LongTensor([[1, 3, 3, 3, 3, 3, 4, 5, 6, 2],
                             [1, 3, 3, 3, 3, 3, 4, 2, 0, 0]]).to(device)
 target_lengths = torch.LongTensor([9, 8, 7])
 
+# Forward propagate
 outputs = model(inputs, input_lengths, targets, target_lengths)
+
+# Recognize input speech
+outputs = model.recognize(inputs, input_lengths)
 
 ```
 
