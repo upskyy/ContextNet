@@ -22,7 +22,12 @@ ContextNet has 23 convolution blocks C0, .... ,C22. All convolution blocks have 
 Average pooling is applied to condense the convolution result into a 1D vector and then followed two fully connected (FC) layers with activation functions. The output goes through a Sigmoid function to be mapped to (0, 1) and then tiled and applied on the convolution output using pointwise multiplications.  
 
 
-**Please check [the paper](https://arxiv.org/abs/2005.03191) for more details.**
+**Please check [the paper](https://arxiv.org/abs/2005.03191) for more details.**  
+
+## Installation
+```   
+pip install -e .   
+```   
 
 ## Usage
 ```python
