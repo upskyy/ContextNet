@@ -4,7 +4,7 @@ Also, ContextNet supports three size models: **small, medium, and large**.
 ContextNet uses the global parameter alpha to control the scaling of the model by changing the number of channels in the convolution filter.
 
   
-This repository contains only model code, but you can train with contextnet at [openspeech](https://github.com/sooftware/openspeech).
+This repository contains only model code, but you can train with ContextNet at [openspeech](https://github.com/sooftware/openspeech).
 
 ## Model Architecuture 
 - ### **Configuration of the ContextNet encoder**  
