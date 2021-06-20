@@ -1,6 +1,6 @@
 # ContextNet
 **ContextNet** has CNN-RNN-transducer architecture and features a fully convolutional encoder that incorporates global context information into convolution layers by adding squeeze-and-excitation modules.  
-Also, ContextNet supports three size models: small, medium, and large.
+Also, ContextNet supports three size models: **small, medium, and large**.
 ContextNet uses the global parameter alpha to control the scaling of the model by changing the number of channels in the convolution filter.
 
   
