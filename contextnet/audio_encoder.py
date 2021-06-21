@@ -24,7 +24,7 @@ class AudioEncoder(nn.Module):
 
     Args:
         input_dim (int, optional): Dimension of input vector (default : 80)
-        num_layers (int, optional): The number of convolutional layers (default : 5)
+        num_layers (int, optional): The number of convolution layers (default : 5)
         kernel_size (int, optional): Value of convolution kernel size (default : 5)
         num_channels (int, optional): The number of channels in the convolution filter (default: 256)
         output_dim (int, optional): Dimension of encoder output vector (default: 640)
