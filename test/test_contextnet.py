@@ -19,11 +19,11 @@ class TestContextNet(unittest.TestCase):
         ).to(device)
 
         inputs = torch.FloatTensor(batch_size, seq_length, input_size).to(device)
-        input_lengths = torch.IntTensor([500, 450, 350])
+        input_lengths = torch.IntTensor([500, 450, 350]).to(device)
         targets = torch.LongTensor([[1, 3, 3, 3, 3, 3, 4, 5, 6, 2],
                                     [1, 3, 3, 3, 3, 3, 4, 5, 2, 0],
                                     [1, 3, 3, 3, 3, 3, 4, 2, 0, 0]]).to(device)
-        target_lengths = torch.LongTensor([9, 8, 7])
+        target_lengths = torch.LongTensor([9, 8, 7]).to(device)
 
         outputs = model(inputs, input_lengths, targets, target_lengths)
 
