@@ -14,7 +14,7 @@ class TestContextNet(unittest.TestCase):
         device = torch.device('cuda' if cuda else 'cpu')
 
         model = ContextNet(
-            model_size='small',
+            model_size='medium',
             num_vocabs=10,
         ).to(device)
 
@@ -38,7 +38,7 @@ class TestContextNet(unittest.TestCase):
         device = torch.device('cuda' if cuda else 'cpu')
 
         model = ContextNet(
-            model_size='large',
+            model_size='medium',
             num_vocabs=10,
         ).to(device)
 
