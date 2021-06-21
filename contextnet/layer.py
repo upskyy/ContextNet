@@ -63,7 +63,7 @@ class SELayer(nn.Module):
                 ``(batch, dimension, seq_length)``
         """
         residual = inputs
-        seq_lengths = input_lengths.max()
+        seq_lengths = inputs.size(2)
 
         inputs = inputs.sum(dim=2) / input_lengths.unsqueeze(1)
         output = self.sequential(inputs)
