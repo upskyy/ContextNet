@@ -157,7 +157,7 @@ class ContextNet(nn.Module):
             token = token.cuda()
 
         for i in range(max_lengths):
-            decoder_output, hidden = self.decoder(token, hidden_states=hidden_states)
+            decoder_output, hidden_states = self.decoder(token, hidden_states=hidden_states)
             output = self.joint(encoder_output[i].view(-1), decoder_output.view(-1))
             prediction_token = output.topk(1)[1]
             token = prediction_token.unsqueeze(1)  # (1, 1)
